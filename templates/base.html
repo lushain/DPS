@@ -1,0 +1,237 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+  <link rel="stylesheet" href="{% static '/css/style.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@4/themes/light.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+  <link rel="stylesheet"href="https://unpkg.com/tippy.js@6/animations/shift-away-subtle.css">
+
+  <style media="screen">
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  #mySidenav{
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 3;
+  }
+
+  .menu-btn{
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin-top: 10px;
+    cursor: pointer;
+    z-index: 4;
+    transition: 500ms;
+  }
+  .sidenav a{
+    color: white !important;
+    display: block;
+    width: max-content;
+  }
+  .menu-btn span{
+    height: 5px;
+    width: 60px;
+    background-color: green;
+    margin: 10px 20px;
+    border-radius: 10px;
+    transition: 600ms;
+    transform-origin: left;
+  }
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  .slogan span{
+    text-align: center;
+  }
+  @media screen and (max-width: 850px){
+    .side-side{
+      flex-direction: column;
+    }
+    .menu-btn{
+      display: flex;
+    }
+    header{
+      display: none;
+    }
+    .front{
+      background-position-x: 50%;
+    }
+    .inside{
+      width: 100% !important;
+    }
+    form div{
+      width: 80% !important;
+    }
+    .inner{
+      width: 90vw;
+    }
+    .names, .password {
+      display: flex;
+      justify-content: center !important;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: auto;
+      width: 100% !important;
+    }
+    .inputs{
+      margin: auto;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90vw !important;
+    }
+    .inputf, .username, .email{
+      margin-top: 2vh;
+      width: 90% !important;
+    }
+  }
+
+
+  </style>
+  {% block head %}
+
+  {% endblock %}
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="">
+        <h1><a href="/">Dexter's Lab</a></h1>
+      </div>
+      <ul>
+        <li><a href="/" class="hover-underline-animation">Home</a></li>
+        <li><a href="/inventions" class="hover-underline-animation">Inventions</a></li>
+        <li><a href="/contact" class="hover-underline-animation">Contact us</a></li>
+      </ul>
+
+      {% if user.is_authenticated %}
+      <div class="register" style="cursor:pointer; display:flex; align-items:center;">
+        <button type="button" class="top-icon" style="width:35px;"><i class="fa-regular fa-circle-user"></i></button> <span style="padding-left: 10px;">{{request.user.username}}</span>
+      </div>
+      {% else %}
+      <div class="register">
+        <button type="button" class="top-icon" style="width:35px;"><i class="fa-regular fa-user"></i></button>
+      </div>
+      {% endif %}
+
+    </nav>
+
+    <template id="dropdown">
+      <div class="user-menu">
+        <!-- <strong class="user-name">Bob Smith</strong> -->
+        {% if user.is_authenticated %}
+        <a class="user-menu__menu-item" href="/account"><i class="icon fa-regular fa-user"></i>My account</a>
+        <a class="user-menu__menu-item" href="/accounts/login"><i class="icon fa-solid fa-arrow-rotate-left"></i>Switch Account</a>
+        <a class="user-menu__menu-item" href="/accounts/logout"><i class="icon fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+
+        {% else %}
+
+        <a class="user-menu__menu-item" href="/accounts/login"><i class="icon fa-solid fa-arrow-right-to-bracket"></i>Login</a>
+        <a class="user-menu__menu-item" href="/accounts/register"><i class="icon fa-solid fa-user-plus"></i>Signup</a>
+        {% endif %}
+      </div>
+    </template>
+  </header>
+
+  <div id="mySidenav" class="sidenav" style="color: white ;">
+    <h1><a href="/" style = "font-size: 40px;">Dexter's Lab</a></h1>
+    <a href="/" class="hover-underline-animation">Home</a>
+    <a href="/inventions" class="hover-underline-animation">Inventions</a>
+    <a href="/contact" class="hover-underline-animation">Contact us</a>
+
+    {% if user.is_authenticated %}
+    <div class="register" style="cursor:pointer; display:flex; align-items:center;">
+      <button type="button" class="top-icon" style="width:35px;"><i class="fa-regular fa-circle-user"></i></button> <span style="padding-left: 10px;">{{request.user.username}}</span>
+    </div>
+    {% else %}
+    <div class="register">
+      <button type="button" class="top-icon" style="width:35px;"><i class="fa-regular fa-user"></i></button>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="menu-btn" id="menu-btn" onclick="openNav()">
+      <span></span>
+      <span></span>
+  </div>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <footer>
+
+      <div class="">
+        <p>Made By Vyom Bhatnagar</p>
+        <p>Class: 11A</p>
+        <p>D.P.S. Vasant Kunj</p>
+      </div>
+
+    </footer>
+    {% block script %}
+
+    {% endblock %}
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="https://kit.fontawesome.com/fbd86bcea7.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static '/js/main.js' %}"></script>
+    <script type="text/javascript">
+      const btn = document.getElementById('menu-btn');
+      const topSpan = btn.children[0]
+      const bottomSpan = btn.children[1]
+
+      function openNav() {
+        bottomSpan.style.marginTop = "20px"
+        topSpan.style.transform = "rotate(36deg)"
+        topSpan.style.backgroundColor = "white"
+        bottomSpan.style.backgroundColor = "white"
+        bottomSpan.style.transform = "rotate(-36deg)"
+        document.getElementById("mySidenav").style.zIndex ="3"
+        document.getElementById("mySidenav").style.width = "100%";
+        btn.setAttribute('onclick','closeNav()')
+
+      };
+
+      function closeNav() {
+      bottomSpan.style.marginTop = "10px"
+      topSpan.style.backgroundColor = "green"
+      bottomSpan.style.backgroundColor = "green"
+      document.getElementById("mySidenav").style.width = "0";
+      topSpan.style.transform = "rotate(0deg)"
+      bottomSpan.style.transform = "rotate(0deg)"
+      btn.setAttribute('onclick','openNav()')
+      }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    {% block head %}
+    <title>Dexter's Lab</title>
+    {% endblock head %}
+
+
+    {% block content %}
+    <main>
+      <div class="front" style=" background-image: url('{% static 'images/dexter.jpg' %}');">
+        <div class="slogan">
+          <h2><span>A place where</span> <span>imagination meets science.</span></h2>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="inner">
+
+          <div class="head-ab">
+            <span class="top">Dexter's Laboratory</span>
+            <h2>About Us</h2>
+          </div>
+
+          <div class="p1">
+            <p>Sleep tight, America! Your fate lies safely in the hands of Dexter, a child genius who whips
+              up dazzling, world-saving inventions in his secret laboratory. This time his sister Dee Dee
+              wont be around to save us from his hellish new inventions.
+            </p>
+            <!-- <img src="/images/dexter2.jpg" alt=""> -->
+          </div>
+
+          <div class="">
+            <p>His intelligence makes him the brains of the family and he is one of the world's greatest
+              inventors, having created countless weird and amazing machines and experiments. He is always
+              working on new inventions and creations every day, but his sister Dee Dee is always breaking
+              into his lab and destroying his work. The daily events surrounding Dexter's life mainly
+              revolve around his relationship with his sister and everything that happens between the two.
+            </p>
+          </div>
+
+          <div class="">
+            <p>We promise you</p>
+            <span>Intelligence</span> <span>•</span>
+            <span>Arrogance</span> <span>•</span>
+            <span>Mischief</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider">
+      </div>
+
+      <div class="section">
+
+        <div class="inner"  style="width: 80vw">
+          <div class="head-ab">
+            <span class="top">Only the most Evil.</span>
+            <h2>Popular Inventions</h2>
+          </div>
+
+          <div class="inventions">
+
+            <div class="card">
+              <a href="#">
+                <img src="{% static '/images/computer.jpg' %}" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Quadraplex T-3000 Computer</b></h4><br>
+                  <p>It is Dexter's computer that oversees the running of the lab and has a personality of its own.</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="card">
+              <a href="#">
+                <img src="{% static '/images/protocore.jpg' %}" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Neurotomic Protocore</b></h4><br>
+                  <p>In the right hands, it could bring great prosperity, or terrible misery if misused.</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="card">
+              <a href="#">
+                <img src="{% static '/images/robo.jpg' %}" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Robo-Dexo 2000</b></h4><br>
+                  <p>It is a giant robot designed to look like Dexter. It is used on both adventures and in battle, usually to save the world.</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="card">
+              <a href="#">
+                <img src="{% static '/images/robo2.jpg' %}" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Robo-Dexo 3000</b></h4><br>
+                  <p>Robo-Dexo 3000 is an advanced giant fighting robot Dexter created to replace the older Robo-Dexo 2000. Upon its test on a giant asteroid it was proven to be far superior than its 2000 model</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="card">
+              <a href="#">
+                <img src="{% static '/images/charlie.jpg' %}" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Charlie</b></h4><br>
+                  <p>Charlie is an experiment of Dexter's. Though he was meant to scare Dee Dee, Charlie seemed to grow an appetite for goats.</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="card">
+              <a href="#">
+                <img src="{% static '/images/robo3.jpg' %}" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Multi-Formic Megabot</b></h4><br>
+                  <p>Of all the inventions Dexter has created, the Multi-Formic Megabot was one of his greatest - and eventually the last hope in eliminating Badaxtra in Japan in the events of Last But Not Beast. </p>
+                </div>
+              </a>
+            </div>
+
+          </div>
+          <button type="button" name="button" class="btn hov" onClick="location.href='inventions'">View more</button>
+
+        </div>
+
+      </div>
+
+    {% endblock content %}
+  </body>
+</html>

@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    {% block head %}
+    <title>Contact Us</title>
+
+    <style media="screen">
+
+      h2{
+        margin-top: 15vh;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 600;
+        font-size: 4rem;
+        text-align: left;
+      }
+      .divider{
+        background-color: green;
+        width: auto;
+      }
+      .acc-heading{
+        width: fit-content;
+      }
+      .middle{
+        display:flex;
+        justify-content: center;
+      }
+      .main{
+        width: 80vw;
+        min-height: 100vh;
+        margin: auto;
+      }
+
+      .section-head{
+        margin-top: 5vh;
+      }
+      .deets{
+        margin-left: 40px;
+        font-size: 20px;
+        margin-top: 5vh;
+      }
+      .deets span{
+        font-family: 'Oswald', sans-serif;
+        font-weight: 400;
+        letter-spacing: 1px;
+      }
+
+      .a{
+        color: green !important;
+      }
+
+    </style>
+
+    {% endblock %}
+  <body>
+
+    {% block content %}
+
+    <main>
+      <div class="main">
+        <div class="face">
+            <div class="middle">
+              <div class="acc-heading">
+                <h2>Contact Us</h2>
+                <div class="divider"></div>
+              </div>
+            </div>
+        </div>
+
+        <div class="deets">
+
+          <p><span>Email:</span><a href="vyom262327@gmail.com" class="hover-underline-animation a"> vyom262327@gmail.com</a></p>
+          <p><span>Discord:</span> Lushain#7914</p>
+          <p><span>Instagram:</span><a href="https://www.instagram.com/vyom_b7/" class="hover-underline-animation a"> vyom_b7</a></p>
+
+        </div>
+      </div>
+    </main>
+
+
+    {% endblock %}
+
+  </body>
+</html>

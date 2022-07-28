@@ -1,0 +1,69 @@
+body{
+  background-color: black;
+  color: white;
+}
+.form-box{
+  margin-top: 15vh;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.heading{
+  padding-top: 5vh;
+  color: white;
+}
+.inside{
+  width: 60vw;
+}
+.form{
+  margin-top: 5vh;
+
+}
+.names, .password{
+  display:flex;
+  justify-content: space-between;
+}
+h2{
+  font-family: 'Oswald', sans-serif !important;
+  font-weight: 500;
+  font-size: 3.5rem;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+label{
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+form > *{
+  padding-top: 5vh;
+}
+.input{
+  width: 100%;
+  height: 40px;
+  border-radius: 100vw;
+  padding: 15px;
+  margin: 5px;
+  font-size: 15px;
+}
+
+.inputf{
+  width: 40%;
+}
+.submit{
+  text-align: center;
+}
+.msg{
+  padding-left: 10px;
+  font-size: 15px;
+  color: red;
+}
+
+.question{
+  text-align: center;
+}
+.q{
+  margin-left: 10px;
+  color: green !important;
+}

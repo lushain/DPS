@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    {% block head %}
+    <title>Inventions</title>
+
+
+    <style media="screen">
+      .front{
+        justify-content: flex-start;
+      }
+      .slogan h2{
+        font-family: 'Oswald', sans-serif !important;
+        font-weight: 500;
+        font-size: 5rem;
+        letter-spacing: 6px;
+        gap: 25px;
+        transform: translateY(-10vh);
+        text-align: start;
+        align-items: baseline;
+        justify-content: flex-start;
+        padding-left: 5vw;
+      }
+      .card{
+        cursor:default
+      }
+      .btn{
+        padding: 10px 15px;
+        color: white !important;
+        text-align: center;
+      }
+
+    </style>
+    {% endblock %}
+
+  {% block content %}
+    <main>
+      <div class="front" style=" background-image: url('{% static 'images/dexter2.jpg' %}');">
+        <div class="slogan">
+          <h2 ><span>Dexter's</span> <span>Inventions</span></h2>
+        </div>
+      </div>
+      <!-- <div class="head-ab" style="background-color: black; ">
+        <span class="top">Only the most Evil.</span>
+        <h2>Dexter's Inventions</h2>
+      </div> -->
+
+      <div class="section">
+
+        <div class="inner"  style="width: 80vw">
+          <div class="inventions">
+
+            {% for invention in inventions %}
+            <div class="card" >
+                <img src="{{invention.img.url}}" alt="Avatar" style="width:100%">
+                <div class="container">
+
+                  <h4><b>{{invention.name}}</b></h4>
+                  <p style="padding-top: 10px;">{{invention.desc}}</p>
+
+                  {% if invention.id in items %}
+                  <button type="button" name="button" class="btn disabled" disabled>Purchased</button>
+
+                  {% else %}
+
+                  <button type="button" name="button" class="btn hov" onClick="location.href='/inventions/{{invention.id}}'">Buy</button>
+                  {% endif %}
+
+                </div>
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    {% endblock %}
+
+</html>

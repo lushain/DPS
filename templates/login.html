@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    {% block head %}
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static '/css/forms.css' %}">
+
+    <style media="screen">
+      .inputf{
+        width: 60%;
+        margin: auto;
+      }
+      .username{
+        margin: auto;
+        width: 60%;
+      }
+      .msg{
+        padding-left: 0;
+        padding-bottom: 10px;
+      }
+
+    </style>
+
+    {% endblock %}
+  <body>
+    {% block content %}
+    <main>
+      <div class="form-box">
+        <div class="inside">
+
+          <div class="heading">
+            <h2>Login</h2>
+          </div>
+
+          <div class="question">
+            <span>Dont have an account?<a class="hover-underline-animation q" href="/accounts/register">Signup</a></span>
+          </div>
+
+          <div class="form">
+            <form class="" id="form" action="login" method="post">
+              {% csrf_token %}
+
+              <div class="username">
+                <label for="uname">Username</label><br>
+                <input type="text" id="uname" name="uname" class="input" required>
+
+              </div>
+
+              <div class="inputf">
+                <label for="password">Password</label><br>
+                <input type="password" id="password" name="password" class="input" required>
+                <span></span>
+              </div>
+
+
+              <div class="submit">
+                {% if messages %}
+                {% for message in messages %}
+
+                {% if message.extra_tags == "login" %}
+                  <div class="msg" style="margin:auto;">
+                    <i class="fa-solid fa-circle-exclamation"></i> <span>{{message}}</span>
+                  </div>
+                {% endif %}
+
+                {% endfor %}
+                {% endif %}
+                <input type="submit" name="submit" class= "btn hov">
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </main>
+    {% endblock %}
+
+  </body>
+</html>
